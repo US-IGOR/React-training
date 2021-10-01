@@ -12,16 +12,21 @@ function App() {
 }
 
 
+
 function Rating() {
     return (
         <div>
-            <div>star</div>
-            <div>star</div>
-            <div>star</div>
-            <div>star</div>
-            <div>star</div>
+            <Star/>
         </div>
     )
+}
+
+const Star = ()=> {
+    return(<div>star</div>)
+}
+
+const AppTitle =()=> {
+    return <div>Title</div>
 }
 
 function Accordion () {
