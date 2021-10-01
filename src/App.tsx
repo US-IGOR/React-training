@@ -10,19 +10,15 @@ function App() {
             <PageTitle title={'My friends'}/>
             <Rating value={1}/>
             <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
-            <Rating value={6}/>
-            <Accordion/>
+            <Accordion title={'Menu'} collapsed={true}/>
+            <Accordion title={'Setting'} collapsed={false}/>
         </div>
     );
 }
 
-const PageTitle = (props:any)=> {
-   return ( <div>{props.title}</div>)
+const PageTitle = (props: any) => {
+    return (<div>{props.title}</div>)
 }
-
 
 
 export default App;
