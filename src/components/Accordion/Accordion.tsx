@@ -1,34 +1,45 @@
 import React from "react";
 
+
+type UsersType = {
+    user:string
+    value:any
+}
 type AccordionPropsType = {
     title: string
     collapsed: boolean,
-    cb:()=>void
+    cb: () => void
+    users: UsersType[]
+    clickCB:(value:any)=>void
 }
 type AccordionTitlePropsType = {
     title: string,
-    cb:()=>void
+    cb: () => void,
+}
+type AccordionBodyPropsType = {
+    users: UsersType[]
+    clickCB:(value:any)=>void
+}
+
+const AccordionTitle = (props: AccordionTitlePropsType) => {
+    return (<div onClick={props.cb}>{props.title}</div>)
+}
+
+
+const AccordionBody = (props: AccordionBodyPropsType) => {
+    return (<div>
+        {props.users.map((m,index) => <li key={index}  onClick={()=>{props.clickCB(m.value)}}>{m.user}</li>)}
+    </div>)
 }
 
 
 export function Accordion(props: AccordionPropsType) {
     return <div>
-
         <AccordionTitle title={props.title} cb={props.cb}/>
-
         {
-
-            !props.collapsed  && <AccordionBody/>}
+            !props.collapsed && <AccordionBody users={props.users} clickCB={props.clickCB}/>}
     </div>
 }
 
-const AccordionTitle = (props: AccordionTitlePropsType) => {
-    return (<div onClick={()=>{props.cb()}}>{props.title}</div>)
-}
-const AccordionBody = () => {
-    return (<div>
-        <ul>1</ul>
-        <ul>2</ul>
-        <ul>3</ul>
-    </div>)
-}
+
+

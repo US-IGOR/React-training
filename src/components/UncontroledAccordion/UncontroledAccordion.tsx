@@ -23,7 +23,7 @@ export function UncontroledAccordion(props: UncontroledAccordionPropsType) {
 }
 
 const AccordionTitle = (props: AccordionTitlePropsType) => {
-    return (<h3 onClick={()=>{props.onClick()}}>{props.title}</h3>    )
+    return (<h3 >{props.title}</h3>    )
 }
 const AccordionBody = () => {
     return (<div>
