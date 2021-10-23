@@ -8,7 +8,6 @@ import {UncontroledAccordion} from "./components/UncontroledAccordion/Uncontrole
 import {UncontroledOnOff} from "./components/UncontroledOnOff/UncontroledOnOff";
 
 
-
 function App() {
     console.log('rendering App')
 
@@ -17,26 +16,29 @@ function App() {
     let [switchOn, setSwitchOn] = useState<boolean>(false)
     let [switchOn2, setSwitchOn2] = useState<boolean>(false)
 
-    const clickCB =(value:any)=> {
-       alert(`Hi, id #${value}` )
+    const clickCB = (value: any) => {
+        alert(`Hi, id #${value}`)
     }
 
 
     return (
         <div className="App">
-            <OnOff on={switchOn} change={setSwitchOn}/>
-            {/*   <UncontroledAccordion title={'Menu'}/>*/}
+     {/*       <OnOff on={switchOn} change={setSwitchOn}/>
             <Accordion title={'Menu'} collapsed={accordionCollapsed}
                        cb={() => setAccordionCollapsed(!accordionCollapsed)}
                        users={[{user: 'Roma', value: 1},
-                               {user: 'Evgenia', value: 2},
-                               {user: 'Igor', value: 3}]}
+                           {user: 'Evgenia', value: 2},
+                           {user: 'Igor', value: 3}]}
                        clickCB={clickCB}
             />
-            <UncontroledRating onChange={()=>''} />
+            <UncontroledRating onChange={() => ''}/>
             <Rating value={ratingValue} CBonClick={setRatingValue}/>
 
-            <UncontroledOnOff change={setSwitchOn2}/>{switchOn2.toString()}
+            <UncontroledOnOff change={setSwitchOn2}/>{switchOn2.toString()}*/}
+
+
+            <UncontroledAccordion title={'Menu Unc Acord.'} />
+
 
         </div>
     );
