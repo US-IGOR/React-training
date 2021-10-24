@@ -6,6 +6,8 @@ import {Accordion} from "./components/Accordion/Accordion";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontroledAccordion} from "./components/UncontroledAccordion/UncontroledAccordion";
 import {UncontroledOnOff} from "./components/UncontroledOnOff/UncontroledOnOff";
+import {Input} from "./components/Input/Input";
+import {UncontrolledInput} from "./components/UncontroledInput/UncontroledInput";
 
 
 function App() {
@@ -21,9 +23,22 @@ function App() {
     }
 
 
+    //React.memo
+    const AccordionMemo=React.memo(Accordion)
+    const InputMemo=React.memo(Input)
+    const OnOffMemo=React.memo(OnOff)
+    const RatingMemo=React.memo(Rating)
+    const UncontroledAccordionMemo=React.memo(UncontroledAccordion)
+    const UncontrolledInputMemo=React.memo(UncontrolledInput)
+    const UncontroledOnOffMemo=React.memo(UncontroledOnOff)
+    const UncontroledRatingMemo=React.memo(UncontroledRating)
+
+
+
+
     return (
         <div className="App">
-     {/*       <OnOff on={switchOn} change={setSwitchOn}/>
+        {/*    <OnOff on={switchOn} change={setSwitchOn}/>
             <Accordion title={'Menu'} collapsed={accordionCollapsed}
                        cb={() => setAccordionCollapsed(!accordionCollapsed)}
                        users={[{user: 'Roma', value: 1},
@@ -34,10 +49,10 @@ function App() {
             <UncontroledRating onChange={() => ''}/>
             <Rating value={ratingValue} CBonClick={setRatingValue}/>
 
-            <UncontroledOnOff change={setSwitchOn2}/>{switchOn2.toString()}*/}
+            <UncontroledOnOff change={setSwitchOn2}/>{switchOn2.toString()}
+*/}
 
-
-            <UncontroledAccordion title={'Menu Unc Acord.'} />
+            <UncontroledAccordionMemo title={'Menu Unc Acord.'} />
 
 
         </div>

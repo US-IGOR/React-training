@@ -18,19 +18,6 @@ const state:stateType = {
     collapsed: true
 }
 
-
-export function UncontroledAccordion(props: UncontroledAccordionPropsType) {
-
-
-    let [collapsed, dispatch] = useReducer(reducer,state)
-
-    return <div>
-        <AccordionTitle2  title={props.title} onClick={() => {dispatch({type:"TOGGLE-COLLAPSED"})}}/>
-
-        {!collapsed.collapsed && <AccordionBody/>}
-    </div>
-}
-
 const AccordionTitle2 = (props: AccordionTitlePropsType) => {
     return (<h3 onClick={props.onClick}>{props.title}</h3>)
 }
@@ -42,3 +29,24 @@ const AccordionBody = () => {
         <ul>3</ul>
     </div>)
 }
+
+
+
+
+const AccordionTitle2Memo=React.memo(AccordionTitle2)
+const AccordionBodyMemo=React.memo(AccordionBody)
+
+
+
+export function UncontroledAccordion(props: UncontroledAccordionPropsType) {
+
+
+    let [collapsed, dispatch] = useReducer(reducer,state)
+
+    return <div>
+        <AccordionTitle2Memo  title={props.title} onClick={() => {dispatch({type:"TOGGLE-COLLAPSED"})}}/>
+
+        {!collapsed.collapsed && <AccordionBodyMemo/>}
+    </div>
+}
+
