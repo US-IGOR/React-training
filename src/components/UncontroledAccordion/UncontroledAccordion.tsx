@@ -1,9 +1,9 @@
-import React, {useReducer, useState} from "react";
-import {log} from "util";
+import React, {useReducer} from "react";
+import {reducer} from "./Reducer";
 
 type UncontroledAccordionPropsType = {
     title: string
-    /*   collapsed: boolean*/
+
 }
 type AccordionTitlePropsType = {
     title: string,
@@ -11,24 +11,23 @@ type AccordionTitlePropsType = {
 
 }
 
-type ActionType={ type:string}
-
-const reducer = (state:boolean, action:ActionType) => {
-    if (action.type === "TOGGLE-COLLAPSED") {
-        return !state
-    }
-    return state
+export type stateType= {
+    collapsed:boolean
+}
+const state:stateType = {
+    collapsed: true
 }
 
 
 export function UncontroledAccordion(props: UncontroledAccordionPropsType) {
 
-    let [collapsed, dispatch] = useReducer(reducer,true)
+
+    let [collapsed, dispatch] = useReducer(reducer,state)
 
     return <div>
         <AccordionTitle2  title={props.title} onClick={() => {dispatch({type:"TOGGLE-COLLAPSED"})}}/>
 
-        {!collapsed && <AccordionBody/>}
+        {!collapsed.collapsed && <AccordionBody/>}
     </div>
 }
 
