@@ -8,6 +8,8 @@ import {UncontroledAccordion} from "./components/UncontroledAccordion/Uncontrole
 import {UncontroledOnOff} from "./components/UncontroledOnOff/UncontroledOnOff";
 import {Input} from "./components/Input/Input";
 import {UncontrolledInput} from "./components/UncontroledInput/UncontroledInput";
+import {HookUseEffect} from "./components/useEffect/HookUseEffect";
+import {Clock} from "./components/Clock/Clock";
 
 
 function App() {
@@ -24,21 +26,19 @@ function App() {
 
 
     //React.memo
-    const AccordionMemo=React.memo(Accordion)
-    const InputMemo=React.memo(Input)
-    const OnOffMemo=React.memo(OnOff)
-    const RatingMemo=React.memo(Rating)
-    const UncontroledAccordionMemo=React.memo(UncontroledAccordion)
-    const UncontrolledInputMemo=React.memo(UncontrolledInput)
-    const UncontroledOnOffMemo=React.memo(UncontroledOnOff)
-    const UncontroledRatingMemo=React.memo(UncontroledRating)
-
-
+    const AccordionMemo = React.memo(Accordion)
+    const InputMemo = React.memo(Input)
+    const OnOffMemo = React.memo(OnOff)
+    const RatingMemo = React.memo(Rating)
+    const UncontroledAccordionMemo = React.memo(UncontroledAccordion)
+    const UncontrolledInputMemo = React.memo(UncontrolledInput)
+    const UncontroledOnOffMemo = React.memo(UncontroledOnOff)
+    const UncontroledRatingMemo = React.memo(UncontroledRating)
 
 
     return (
         <div className="App">
-        {/*    <OnOff on={switchOn} change={setSwitchOn}/>
+            {/*    <OnOff on={switchOn} change={setSwitchOn}/>
             <Accordion title={'Menu'} collapsed={accordionCollapsed}
                        cb={() => setAccordionCollapsed(!accordionCollapsed)}
                        users={[{user: 'Roma', value: 1},
@@ -52,8 +52,10 @@ function App() {
             <UncontroledOnOff change={setSwitchOn2}/>{switchOn2.toString()}
 */}
 
-            <UncontroledAccordionMemo title={'Menu Unc Acord.'} />
+            {/*    <UncontroledAccordionMemo title={'Menu Unc Acord.'} />*/}
 
+            <HookUseEffect/>
+            <Clock/>
 
         </div>
     );
