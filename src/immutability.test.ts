@@ -1,6 +1,16 @@
 import {
-    UserType, makeHairstyle, moveUser, UserWithLaptopType,
-    upgradeLaptop, UserWithBooksType, addBooks, changeBook, deleteBook, UserWithCompaniesType, addCompanies
+    UserType,
+    makeHairstyle,
+    moveUser,
+    UserWithLaptopType,
+    upgradeLaptop,
+    UserWithBooksType,
+    addBooks,
+    changeBook,
+    deleteBook,
+    UserWithCompaniesType,
+    addCompanies,
+    updateCompanieTitle, updateCompanieTitle2, updateCompanyTitle2
 } from './immutability'
 
 
@@ -134,4 +144,42 @@ const newCompanie:{ id: number, title: string } = {id : 3, title:'EPAM'}
 })
 
 
-//1.11
+test('user with companies update', () => {
+    let user: UserWithCompaniesType = {
+        name: 'Igor',
+        hair: 32,
+        address: {title: 'Minsk'},
+        laptop: {title: 'hp'},
+        companies:[{id: 1, title: 'ElectroImpuls'},{id: 2, title: 'Promira'}]
+    }
+
+
+    const userWithUpdateCompanies = updateCompanieTitle(user, 2,'EPAM')
+
+
+    expect(userWithUpdateCompanies.companies.length).toBe(2)
+    expect(user.companies.length).toBe(2)
+    expect(userWithUpdateCompanies.companies[1]).toEqual({id:2,title:'EPAM'})
+})
+
+
+test('update company', () => {
+    let user: UserWithLaptopType = {
+        name: 'Igor',
+        hair: 32,
+        address: {title: 'Minsk'},
+        laptop: {title: 'hp'},
+    }
+let companies = {
+        'Igor' : [{id: 1, title: 'ElectroImpuls'},{id: 2, title: 'Promira'}],
+        'Zhenia' : [{id: 1, title: 'Cops'},{id: 2, title: 'Broker'}]
+}
+
+let copy = updateCompanyTitle2 (companies,'Zhenia',2,'EPAM')
+
+
+    expect(copy[ 'Zhenia']).not.toBe(companies[ 'Zhenia'])
+    expect(copy['Igor']).toEqual(companies['Igor'])
+    expect(copy['Zhenia'][1].title).toBe('EPAM')
+
+})
