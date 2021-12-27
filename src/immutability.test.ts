@@ -10,7 +10,7 @@ import {
     deleteBook,
     UserWithCompaniesType,
     addCompanies,
-    updateCompanieTitle, updateCompanieTitle2, updateCompanyTitle2
+    updateCompanieTitle, updateCompanyTitle2
 } from './immutability'
 
 
